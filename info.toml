@@ -1,7 +1,8 @@
 [meta]
-name = "Discord Rich Presence"
-author = "Openplanet"
+name = "Discord Rich Presence with areyeses.ddns.net links"
+author = "ArEyeses & Openplanet"
 category = "Utilities"
+blocks = [ "Discord" ]
 
 [script]
 imports = [ "Dialogs.as" ]
