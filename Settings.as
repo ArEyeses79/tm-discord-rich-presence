@@ -12,3 +12,6 @@ bool Setting_DisplayServerInfoOnline = true;
 
 [Setting name="Ignore all join requests"]
 bool Setting_IgnoreJoinRequests = false;
+
+[Setting name=":3"]
+bool Setting_colonthree = true;

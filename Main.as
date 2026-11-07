@@ -247,7 +247,7 @@ int GetSecondsLeft()
 void SetStatus_MainMenu()
 {
 	Discord::Status status;
-	status.State = "Main menu";
+	status.State = "Main menu" + (Setting_colonthree ? ' :3' : '');
 	status.LargeImageKey = "logo";
 	Discord::SetStatus(status);
 }
@@ -255,7 +255,7 @@ void SetStatus_MainMenu()
 void SetStatus_TitleMenu()
 {
 	Discord::Status status = GetTitleStatus();
-	status.State = "In menu";
+	status.State = "In menu" + (Setting_colonthree ? ' :3' : '');
 	Discord::SetStatus(status);
 }
 
@@ -277,7 +277,7 @@ void SetStatus_TitleEditor(
 #endif
 			status.Details = GetMapName(currentMap);
 		}
-		status.State = "Editing map";
+		status.State = "Editing map" + (Setting_colonthree ? ' :3' : '');
 
 #if TMNEXT
 		auto mediaTracker = cast<CGameEditorMediaTracker>(editor);
@@ -294,44 +294,44 @@ void SetStatus_TitleEditor(
 #endif
 				status.Details = GetMapName(currentMap);
 			}
-			status.State = "In Mediatracker";
+			status.State = "In Mediatracker" + (Setting_colonthree ? ' :3' : '');
 		}
 
 #if !FOREVER
 		auto itemEditor = cast<CGameEditorItem>(editor);
-		if (itemEditor !is null) { status.State = "In item editor"; }
+		if (itemEditor !is null) { status.State = "In item editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 
 #if MP4 || TMNEXT
 		auto meshEditor = cast<CGameEditorMesh>(editor);
-		if (meshEditor !is null) { status.State = "In mesh editor"; }
+		if (meshEditor !is null) { status.State = "In mesh editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 
 #if !FOREVER
 		auto actionMaker = cast<CGameActionMaker>(editor);
-		if (actionMaker !is null) { status.State = "In action maker"; }
+		if (actionMaker !is null) { status.State = "In action maker" + (Setting_colonthree ? ' :3' : ''); }
 
 		auto moduleEditor = cast<CGameEditorModule>(editor);
-		if (moduleEditor !is null) { status.State = "In module editor"; }
+		if (moduleEditor !is null) { status.State = "In module editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 
 #if MP4 || TMNEXT
 		auto editorEditor = cast<CGameEditorEditor>(editor);
-		if (editorEditor !is null) { status.State = "In editor editor"; }
+		if (editorEditor !is null) { status.State = "In editor editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 
 #if MP40
 		auto pixelEditor = cast<CGameEditorPixel>(editor);
-		if (pixelEditor !is null) { status.State = "In pixel editor"; }
+		if (pixelEditor !is null) { status.State = "In pixel editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 
 #if !FOREVER
 	} else if (editorBase !is null) {
 		auto interfaceDesigner = cast<CGameEditorManialink>(editorBase);
-		if (interfaceDesigner !is null) { status.State = "In interface designer"; }
+		if (interfaceDesigner !is null) { status.State = "In interface designer" + (Setting_colonthree ? ' :3' : ''); }
 
 		auto animSetEditor = cast<CGameEditorAnimSet>(editorBase);
-		if (animSetEditor !is null) { status.State = "In animation set editor"; }
+		if (animSetEditor !is null) { status.State = "In animation set editor" + (Setting_colonthree ? ' :3' : ''); }
 #endif
 	}
 
@@ -349,7 +349,7 @@ void SetStatus_TitleSolo(CGameCtnChallenge@ challenge)
 #endif
 		status.Details = GetMapName(challenge);
 	}
-	status.State = "Playing solo";
+	status.State = "Playing solo" + (Setting_colonthree ? ' :3' : '');
 	Discord::SetStatus(status);
 }
 
@@ -395,9 +395,9 @@ void SetStatus_Server(CGameCtnChallenge@ challenge, CGameCtnNetServerInfo@ serve
 
 	if (Setting_DisplayServerInfoOnline) {
 #if TURBO
-		status.State = g_serverDisplayName;
+		status.State = g_serverDisplayName + (Setting_colonthree ? ' :3' : '');
 #else
-		status.State = Text::StripFormatCodes(serverInfo.ServerName);
+		status.State = Text::StripFormatCodes(serverInfo.ServerName) + (Setting_colonthree ? ' :3' : '');
 #endif
 
 		string serverLogin = GetServerLogin(serverInfo);
